@@ -1,0 +1,127 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+void file1(char[100] , int , int , int);
+void file2(char[100] , int , int , int);
+
+int main()
+{
+    char in[200] , in2[100];
+    int s1 , s2 , s3;
+
+
+    file1(in , s1 , s2 , s3);
+    file2(in2 , s1 , s2 , s3);
+
+    return 0;
+}
+
+void file1(char input[100] , int math , int sci , int eng)
+{
+    FILE *fpointer;
+    int total , avg;
+
+     fpointer = fopen("E:\\file.txt", "w");
+
+    if( fpointer == NULL ){
+        printf("Error");
+    }
+
+    printf("Name: ");
+    fprintf(fpointer,"Name: ");
+    gets(input);
+    fputs(input , fpointer);
+    fprintf(fpointer , "\n");
+
+    printf("ID: ");
+    fprintf(fpointer,"ID: ");
+    gets(input);
+    fputs(input , fpointer);
+    fprintf(fpointer , "\n");
+
+    printf("MATH: ");
+    fprintf(fpointer,"MATH: ");
+    scanf("%d", &math);
+    fprintf(fpointer, "%d", math);
+    fprintf(fpointer , "\n");
+
+    printf("SCI: ");
+    fprintf(fpointer,"SCI: ");
+    scanf("%d", &sci);
+    fprintf(fpointer, "%d", sci);
+    fprintf(fpointer , "\n");
+
+    printf("ENG: ");
+    fprintf(fpointer,"ENG: ");
+    scanf("%d", &eng);
+    fprintf(fpointer, "%d", eng);
+    fprintf(fpointer , "\n");
+
+    total = math + sci + eng;
+    avg = total/3;
+
+    fprintf(fpointer, "Total Grade: %d\n", total);
+    fprintf(fpointer, "Grade Average: %d", avg);
+
+    fprintf(fpointer, "\n");
+    printf("\n");
+
+    gets(input);
+
+    fclose(fpointer);
+}
+
+void file2(char input[100] , int math , int sci , int eng)
+{
+    FILE *fpointer2;
+    int total , avg;
+
+    fpointer2 = fopen("E:\\file2.txt", "w");
+
+    if( fpointer2 == NULL ){
+        printf("Error");
+    }
+
+    fprintf(fpointer2 , "\n");
+    printf("Name: ");
+    fprintf(fpointer2,"Name: ");
+    gets(input);
+    fputs(input , fpointer2);
+    fprintf(fpointer2 , "\n");
+
+    printf("ID: ");
+    fprintf(fpointer2,"ID: ");
+    gets(input);
+    fputs(input , fpointer2);
+    fprintf(fpointer2 , "\n");
+
+    printf("MATH: ");
+    fprintf(fpointer2,"MATH: ");
+    scanf("%d", &math);
+    fprintf(fpointer2, "%d", math);
+    fprintf(fpointer2 , "\n");
+
+    printf("SCI: ");
+    fprintf(fpointer2,"SCI: ");
+    scanf("%d", &sci);
+    fprintf(fpointer2, "%d", sci);
+    fprintf(fpointer2 , "\n");
+
+    printf("ENG: ");
+    fprintf(fpointer2,"ENG: ");
+    scanf("%d", &eng);
+    fprintf(fpointer2, "%d", eng);
+    fprintf(fpointer2 , "\n");
+
+    total = math + sci + eng;
+    avg = total/3;
+
+    fprintf(fpointer2, "Total Grade: %d\n", total);
+    fprintf(fpointer2, "Grade Average: %d", avg);
+
+    fprintf(fpointer2, "\n");
+    printf("\n");
+
+    fclose(fpointer2);
+}
